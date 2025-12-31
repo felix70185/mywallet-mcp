@@ -105,10 +105,23 @@ $app->configure('app');
 |
 */
 
-$app->router->group([
-    'namespace' => 'App\Http\Controllers',
-], function ($router) {
-    require __DIR__.'/../routes/web.php';
+// 1️⃣ Обычные web/api роуты
+// $app->router->group([
+//     'namespace' => 'App\Http\Controllers',
+// ], function ($router) {
+//     require __DIR__.'/../routes/web.php';
+// });
+
+// 2️⃣ MCP-роуты
+// $app->router->group([
+//     'prefix' => 'mcp',
+//     'namespace' => 'App\Http\Controllers',
+// ], function ($router) {
+//     require __DIR__.'/../routes/mcp.php';
+// });
+
+$app->router->group([], function ($router) {
+    require __DIR__.'/../routes/mcp.php';
 });
 
 return $app;
